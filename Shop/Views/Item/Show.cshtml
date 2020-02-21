@@ -1,0 +1,29 @@
+﻿@model Shop.Models.ViewModels.ShowItem
+
+@{
+    ViewBag.Title = "Show";
+}
+
+<h2>Show Item</h2>
+<div class="navbar">
+    <a class="navlink" href="/Item/List">Back to List</a>
+    <a class="navlink" href="/Item/Update/@Model.Item.Id">Update</a>
+    <a class="navlink" href="/Item/DeleteConfirm/@Model.Item.Id">Delete</a>
+</div>
+<div>
+
+    <div class="col2">
+        <div id="profilecontainer">
+            @{
+                if (Model.Item.HasPic)
+                {
+                    <img src="../../Content/Items/@(Model.Item.Id).@(Model.Item.PicExtension)" alt="Image of @Model.Item.Name" />
+                }
+            }
+        </div>
+        <div>Name : @Model.Item.Name</div>
+        <div>Category : @Model.Category.Name</div>
+
+    </div>    
+    <div style="clear:both;"></div>
+</div>

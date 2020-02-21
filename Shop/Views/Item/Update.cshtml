@@ -1,0 +1,37 @@
+﻿@model Shop.Models.ViewModels.UpdateItem
+
+
+@{
+    ViewBag.Title = "Update";
+}
+
+<h2>Update</h2>
+<div class="navbar">
+    <a href="/Item/List">Back to List</a>
+</div>
+<!-- Do not forget enctype="multiplart/form-data" if you want to do file upload! -->
+<form action="/Item/Update/@Model.Item.Id" method="POST" enctype="multipart/form-data">
+    <div class="inpfield"><span>Image: </span><input type="file" name="pic" /></div>
+    <div class="inpfield"><span>Name: </span><input type="text" value="@Model.Item.Name" name="name" /> </div>
+    <div class="inpfield"><span>Price: </span><input type="text" value="@Model.Item.Price" name="price" /> </div>
+    <div class="inpfield">
+        <span>Item category: </span>
+        <select name="categoryId">
+            @foreach (var category in Model.Categories)
+            {
+                var selected = "";
+                if (Model.Item.CategoryId== category.Id)
+                {
+                    selected = "selected";
+                }
+                <option value="@category.Id" @selected>@category.Name</option>
+            }
+        </select>
+    </div>
+
+    
+    <div class="inpfield">
+        <input type="submit" value="update item" />
+    </div>
+
+</form>

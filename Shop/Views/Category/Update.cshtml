@@ -1,0 +1,13 @@
+﻿@model Shop.Data.Category
+@{
+    ViewBag.Title = "Update";
+}
+
+<h2>Update @Model.Name</h2>
+<a href="/Category/List">Back to List</a>
+
+<form method="post" action="/Category/Update/@Model.Id">
+    <input type="text" name="categoryName" value="@Model.Name" />
+    <input type="submit" value="update category" />
+</form>
+

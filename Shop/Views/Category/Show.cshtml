@@ -1,0 +1,14 @@
+﻿@model Shop.Data.Category
+@{
+    ViewBag.Title = "Show";
+}
+
+<h2>Show</h2>
+<div class="navbar">
+    <a class="navlink" href="/Category/List">Back to List</a>
+    <a class="navlink" href="/Category/Update/@Model.Id">Update</a>
+    <a class="navlink" href="/Category/DeleteConfirm/@Model.Id">Delete</a>
+</div>
+<div>
+    <span>Name : </span>@Model.Name
+</div>

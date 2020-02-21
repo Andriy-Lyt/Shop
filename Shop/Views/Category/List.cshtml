@@ -1,0 +1,27 @@
+﻿@model List<Shop.Data.Category>
+
+
+@{
+    ViewBag.Title = "List";
+}
+
+<h2>List</h2>
+<div class="navbar">
+    <a href="/Category/Add">Add New</a>
+</div>
+<form method="GET" action="/Category/List">
+    <input type="text" id="speciessearchkey" name="speciessearchkey" />
+    <input type="submit" value="Search" />
+</form>
+<div class="tilecontainer">
+    @{
+        foreach (var category in @Model)
+        {
+
+            <div class="listitem">
+                <a href="/Category/Show/@category.Id">@category.Name</a>
+                <a class="cta" href="/Category/Update/@category.Id">Update</a>
+            </div>
+        }
+    }
+</div>

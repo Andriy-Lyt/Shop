@@ -1,0 +1,28 @@
+﻿@model  List<Shop.Data.Category>
+@{
+    ViewBag.Title = "Add";
+}
+
+<h2>Add a New Item</h2>
+<div class="navbar">
+    <a class="navlink" href="/Item/List">Back to List</a>
+</div>
+
+<form method="POST" action="/Item/Add">    
+    <div class="inpfield"><span>Name:</span><input type="text" name="itemName" /></div>
+    <div class="inpfield"><span>Price $:</span><input type="text" name="itemPrice" /></div>
+    <div class="inpfield">
+        <span>Categories:</span>
+        <select type="text" name="categoryId">
+            @{
+                foreach (var category in Model)
+                {
+                    <option value="@category.Id">@category.Name</option>
+                }
+            }
+        </select>
+    </div>
+    <div class="inpfield">
+        <input type="submit" value="Add Item">
+    </div>
+</form>

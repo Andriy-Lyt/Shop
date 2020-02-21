@@ -1,0 +1,38 @@
+﻿@model List<Shop.Data.Item>
+
+@{
+    ViewBag.Title = "List";
+}
+
+<h2>List of Items</h2>
+<div class="navbar">
+    <a class="navlink" href="/Item/Add">Add New</a>
+</div>
+<form action="/Item/List" method="GET">
+    <input type="text" name="itemsearchkey" id="itemsearchkey" />
+    <input type="submit" value="Search" />
+</form>
+<div class="tilecontainer">
+    @{
+        foreach (var item in Model)
+        {
+            <div class="listitem">
+                <div class="itemimage">
+                    @{
+                        if (item.HasPic)
+                        {
+                            <img src="../../Content/Items/@(item.Id).@(item.PicExtension)" alt="Image of @item.Name" />
+                        }
+                    }
+                </div>
+                <div class="itemdetails">
+                    <div class="listcat"><a href="/Item/Show/@item.Id">@item.Name</a></div>
+                    <span>@item.Price $</span>
+                    <span class="cta"><a href="/Item/Update/@item.Id">Update</a></span>
+                </div>
+                <div style="clear:both;"></div>
+            </div>
+        }
+    }
+    <div style="clear:both;"></div>
+</div>
